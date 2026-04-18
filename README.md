@@ -1,6 +1,6 @@
 # Markus · Codevena
 
-**Six products shipped. Edge to metal. One developer.**
+**Seven products shipped. Edge to metal. One developer.**
 
 Solo dev shipping end-to-end — frontend, backend, infrastructure, AI integration.
 Cloudflare Workers where global reach wins. Own hardware where I want control.
@@ -20,6 +20,7 @@ No team, no managed-everything philosophy.
 |---|---|---|
 | [**AzadiFeed**](https://azadifeed.com) | Crisis communication platform for the Iranian community — multilingual (EN · DE · FA with RTL), AI-translated RSS pipeline, Telegram breaking-news push. | Hetzner + MongoDB Atlas |
 | [**AI Builds**](https://aibuilds.dev) | A multi-page site where AI agents collectively build and evolve pages via an MCP backbone. | Self-hosted |
+| [**ToolPrime**](https://toolprime.dev) | Free online utilities suite — JSON formatter, word counter, image compressor, unit converter, password generator, and dozens more. No signup, no ads. | Cloudflare Pages |
 | [**Ludotek**](https://github.com/Codevena/ludotek) | Personal retro game library — SSH/FTP/local scan across 66 platforms, IGDB + SteamGridDB enrichment, AI Fun Facts via OpenRouter, discover/recommendation engine. | Self-hosted (Docker) |
 | [**Shattergrid**](https://shattergrid.com) | Browser Geometry-Wars clone. Three.js, 60Hz fixed-timestep, 40K particle pool, post-processing effects. | Cloudflare Pages + Workers + D1 |
 | [**Stack Surge**](https://stacksurge.app) | Browser arcade stacker. Vanilla JS + Canvas, Supabase auth + cross-device sync, perfect-streaks & fever mode. | Cloudflare + Supabase |
