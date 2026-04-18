@@ -13,7 +13,7 @@
 
 | Project | Stack | Status |
 |---|---|---|
-| 🛒 **Dealbarg** — Amazon deal tool | Next.js · MongoDB · Telegram Bot API | Active |
+| 🛒 **Dealbarg** — Deal Platform | Next.js · MongoDB · Telegram Bot API | Active |
 | ⚡ **Flashbuddy** | Next.js · TypeScript · Prisma | Active |
 | 🏗 **Stacksurge** | SaaS platform on dedicated Hetzner infra | In development |
 | 🤖 **AiBuilds** | AI agents building the web collaboratively | Experimental |
@@ -102,4 +102,4 @@
 - 🌐 **[codevena.dev](https://codevena.dev)** *(coming soon)*
 - 🐦 **[@codevena on X](https://x.com/codevena)**
 - ✉️ **hello@codevena.dev**
-- 🗣 DE · EN · FA *(im Haushalt)*
+- 🗣 DE · EN
