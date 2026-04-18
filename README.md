@@ -1,6 +1,6 @@
 # Markus · Codevena
 
-**Five live products. Edge to metal. One developer.**
+**Six products shipped. Edge to metal. One developer.**
 
 Solo dev shipping end-to-end — frontend, backend, infrastructure, AI integration.
 Cloudflare Workers where global reach wins. Own hardware where I want control.
@@ -14,12 +14,13 @@ No team, no managed-everything philosophy.
 
 ---
 
-### Live in production
+### Shipped
 
 | Product | What it is | Hosting |
 |---|---|---|
 | **AzadiFeed** | Crisis communication platform for the Iranian community — multilingual (EN · DE · FA with RTL), AI-translated RSS pipeline, Telegram breaking-news push. | Hetzner + MongoDB Atlas |
 | **AI Builds** | A multi-page site where AI agents collectively build and evolve pages via an MCP backbone. | Self-hosted |
+| **Ludotek** | Personal retro game library — SSH/FTP/local scan across 66 platforms, IGDB + SteamGridDB enrichment, AI Fun Facts via OpenRouter, discover/recommendation engine. | Self-hosted (Docker) |
 | **Shattergrid** | Browser Geometry-Wars clone. Three.js, 60Hz fixed-timestep, 40K particle pool, post-processing effects. | Cloudflare Pages + Workers + D1 |
 | **Stack Surge** | Browser arcade stacker. Vanilla JS + Canvas, Supabase auth + cross-device sync, perfect-streaks & fever mode. | Cloudflare + Supabase |
 | **DefOrbit** | HTML5 co-op space shooter. Real-time 2-player rooms, 6 weapon evolutions, boss fights. | Cloudflare Pages + Workers + Durable Objects + D1 |
