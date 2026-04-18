@@ -2,7 +2,7 @@
 
 # Hi, I'm Markus 👋
 
-**Fullstack Developer · DevOps · AI Integration** — Wuppertal, Germany → Crete 🇬🇷
+**Fullstack Developer · DevOps · AI Integration** — Dusseldorf, Germany → Greece 🇬🇷
 
 > Solo developer building production SaaS from scratch — no team, no budget, no shortcuts.
 > Founder of **Codevena** · Shipping real products with real infrastructure.
