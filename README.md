@@ -69,6 +69,6 @@ No team, no managed-everything philosophy.
 - 🐦 **[@codevena on X](https://x.com/codevena)**
 - ✉️ **hello@codevena.dev** — written inquiries only, no calls, no Calendly
 - 📍 Düsseldorf, Germany
-- 🗣 DE · EN · FA *(household)*
+- 🗣 DE · EN
 
-**Available for** 1–2 consulting engagements per quarter. Fullstack · DevOps · AI integration.
+Fullstack · DevOps · AI integration.
