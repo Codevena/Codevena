@@ -32,13 +32,13 @@ No team, no managed-everything philosophy.
 
 ### Stack I reach for
 
-**Frontend** ·  Next.js 16 · React · TypeScript · Tailwind · shadcn/ui · Three.js · Vanilla JS when it wins
+**Frontend** ·  Next.js 16 · Astro · React · TypeScript · Tailwind · shadcn/ui · Three.js · Vanilla JS when it wins
 
-**Backend** ·  Node · Prisma · PostgreSQL · MongoDB · Supabase · Socket.IO · Express
+**Backend** ·  Node · Prisma · PostgreSQL · MongoDB · Redis · Supabase · Stripe · Socket.IO · Soketi · Express
 
 **Edge / Serverless** ·  Cloudflare Workers · Durable Objects · Pages · D1
 
-**AI / Agents** ·  OpenAI · Anthropic Claude · Claude Code · MCP · Embeddings
+**AI / Agents** ·  OpenAI · Anthropic Claude · Claude Code · MCP · OpenRouter · Embeddings
 
 **Infra (home base)** ·  Hetzner dedicated · Coolify · Tailscale · Docker · Traefik · fail2ban · auditd · canonical-livepatch · BorgBackup · software RAID · Cloudflare Zero Trust
 
