@@ -32,6 +32,19 @@ No team, no managed-everything philosophy.
 
 ---
 
+### Open source — code you can actually read
+
+> Public repos you can clone, run, and inspect — not just live links.
+
+| Repo | What it is | Stack |
+|---|---|---|
+| [**reviewgate**](https://github.com/Codevena/reviewgate) | A `Stop`-hook code-review gate for AI coding agents — independent LLM reviewers (Codex · Gemini · Claude · OpenRouter) must clear the diff before the agent can end its turn. Multi-reviewer panel, adversarial critic, opt-in sandbox isolation, per-repo learning brain. Dogfooded daily. | TypeScript |
+| [**cleanbuddy**](https://github.com/Codevena/cleanbuddy) | Safe, fast macOS disk-cleanup tool — gum TUI + a `launchd` watcher, 130 tests, allowlist-guarded deletion that never touches active projects or Docker volumes. | Bash |
+| [**cvmake**](https://github.com/Codevena/cvmake) | OSS CV builder — YAML → PDF across 12 templates, npm CLI + live web editor, visual-regression tested. | TypeScript |
+| [**fixbuddy**](https://github.com/Codevena/fixbuddy) | Autonomous GitHub issue fixer with a two-agent self-review pipeline. | Shell |
+
+---
+
 ### Stack I reach for
 
 **Frontend** ·  Next.js 16 · Astro · React · TypeScript · Tailwind · shadcn/ui · Three.js · Vanilla JS when it wins
