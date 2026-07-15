@@ -7,6 +7,7 @@ Cloudflare Workers where global reach wins. Own hardware where I want control.
 No team, no managed-everything philosophy.
 
 <p>
+  <a href="https://codevena.dev"><img src="https://img.shields.io/badge/Portfolio-codevena.dev-7dcfff?style=flat-square&logo=googlechrome&logoColor=black" alt="Portfolio — codevena.dev" /></a>
   <img src="https://komarev.com/ghpvc/?username=Codevena&style=flat-square&color=7dcfff&label=Profile+views" alt="Profile views" />
   <a href="https://x.com/codevena"><img src="https://img.shields.io/badge/-@codevena-000000?style=flat-square&logo=x&logoColor=white" alt="X" /></a>
   <a href="mailto:hello@codevena.dev"><img src="https://img.shields.io/badge/hello@codevena.dev-7dcfff?style=flat-square&logo=maildotru&logoColor=black" alt="Email" /></a>
