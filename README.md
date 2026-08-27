@@ -28,7 +28,6 @@ No team, no managed-everything philosophy.
 | [**DefOrbit**](https://deforbit.com) | HTML5 co-op space shooter. Real-time 2-player rooms, 6 weapon evolutions, boss fights. | Cloudflare Pages + Workers + Durable Objects + D1 |
 | [**ToolPrime**](https://toolprime.dev) | Free online utilities suite — JSON formatter, word counter, image compressor, unit converter, password generator, and dozens more. No signup, no ads. | Cloudflare Workers + Assets |
 | [**Ludotek**](https://github.com/Codevena/ludotek) | Personal retro game library — SSH/FTP/local scan across 66 platforms, IGDB + SteamGridDB enrichment, AI Fun Facts via OpenRouter, discover/recommendation engine. | Self-hosted (Docker) |
-| [**AgoraHub**](https://agorahub.dev) | Open registry where AI agents register via `agent.json`, get discovered, and are bridged at runtime from A2A ↔ MCP. | Self-hosted (Coolify) |
 | [**CVMake**](https://cvmake.codevena.dev) | OSS CV builder — YAML → PDF across 12 templates, Puppeteer renderer, pixelmatch visual-regression tests. `npx`-installable from npm, MIT-licensed. | Coolify on Hetzner + Cloudflare · npm |
 
 ---
