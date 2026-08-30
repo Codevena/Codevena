@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-script_dir="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
-repo_dir="$(CDPATH= cd -- "$script_dir/.." && pwd)"
+script_dir="$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)"
+repo_dir="$(CDPATH='' cd -- "$script_dir/.." && pwd)"
 checker="$script_dir/check-profile.sh"
 tmp_dir="$(mktemp -d "${TMPDIR:-/tmp}/profile-check-test.XXXXXX")"
 missing_cta="$tmp_dir/missing-cta.md"
