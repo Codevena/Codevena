@@ -30,6 +30,15 @@ jobs:
       - name: Validate checker rejection fixtures
         run: bash scripts/test-check-profile.sh
 
+      - name: Validate passive snake asset fixtures
+        run: bash scripts/test-check-snake-assets.sh
+
+      - name: Validate automation security boundary
+        run: bash scripts/check-automation.sh
+
+      - name: Validate automation rejection fixtures
+        run: bash scripts/test-check-automation.sh
+
       - name: Install actionlint
         env:
           ACTIONLINT_VERSION: "1.7.12"
