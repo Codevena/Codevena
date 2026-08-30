@@ -1,87 +1,67 @@
 # Markus · Codevena
 
-**Edge to metal. One developer.**
+**I build and run web products end to end.**
 
-Solo dev shipping end-to-end — frontend, backend, infrastructure, AI integration.
-Cloudflare Workers where global reach wins. Own hardware where I want control.
-No team, no managed-everything philosophy.
+From product decisions and AI-assisted implementation to payments, deployment,
+and operations — carried through to something live.
 
-<p>
-  <a href="https://codevena.dev"><img src="https://img.shields.io/badge/Portfolio-codevena.dev-7dcfff?style=flat-square&logo=googlechrome&logoColor=black" alt="Portfolio — codevena.dev" /></a>
-  <img src="https://komarev.com/ghpvc/?username=Codevena&style=flat-square&color=7dcfff&label=Profile+views" alt="Profile views" />
-  <a href="https://x.com/codevena"><img src="https://img.shields.io/badge/-@codevena-000000?style=flat-square&logo=x&logoColor=white" alt="X" /></a>
-  <a href="mailto:hello@codevena.dev"><img src="https://img.shields.io/badge/hello@codevena.dev-7dcfff?style=flat-square&logo=maildotru&logoColor=black" alt="Email" /></a>
-</p>
+**[See the production case studies →](https://codevena.dev)**
+
+`Product to production. Edge to metal.`
 
 ---
 
-### Shipped
+### Selected work
 
-| Product | What it is | Hosting |
+| Work | What shipped | Proof |
 |---|---|---|
-| [**Flashbuddy**](https://flashbuddy.app) | Full learning SaaS — FSRS spaced repetition, AI-generated flashcards, gamification (XP, streaks, quests), four Stripe tiers. | Coolify on Hetzner + Cloudflare Edge |
-| [**Capypad**](https://capypad.com) | Bilingual SSR code-quiz across 10 languages — pgvector HNSW dedup on insert, admin content-push API (no public DB port), per-request CSP nonce, SHA-pinned containers. | Coolify on Hetzner + Cloudflare |
-| [**AzadiFeed**](https://azadifeed.com) | Crisis communication platform for the Iranian community — multilingual (EN · DE · FA with RTL), AI-translated RSS pipeline, Telegram breaking-news push. | Hetzner (self-hosted MongoDB) |
-| [**AI Builds**](https://aibuilds.dev) | A multi-page site where AI agents collectively build and evolve pages via an MCP backbone. | Self-hosted |
-| [**Shattergrid**](https://shattergrid.com) | Browser Geometry-Wars clone. Three.js, 60Hz fixed-timestep, 20K particle pool, post-processing effects. | Self-hosted Nginx + CF Workers + D1 |
-| [**Stack Surge**](https://stacksurge.app) | Browser arcade stacker. Vanilla JS + Canvas, Supabase + nickname/PIN cross-device sync, perfect-streaks & fever mode. | Cloudflare + Supabase |
-| [**DefOrbit**](https://deforbit.com) | HTML5 co-op space shooter. Real-time 2-player rooms, 6 weapon evolutions, boss fights. | Cloudflare Pages + Workers + Durable Objects + D1 |
-| [**ToolPrime**](https://toolprime.dev) | Free online utilities suite — JSON formatter, word counter, image compressor, unit converter, password generator, and dozens more. No signup, no ads. | Cloudflare Workers + Assets |
-| [**Ludotek**](https://github.com/Codevena/ludotek) | Personal retro game library — SSH/FTP/local scan across 66 platforms, IGDB + SteamGridDB enrichment, AI Fun Facts via OpenRouter, discover/recommendation engine. | Self-hosted (Docker) |
-| [**CVMake**](https://cvmake.codevena.dev) | OSS CV builder — YAML → PDF across 12 templates, Puppeteer renderer, pixelmatch visual-regression tests. `npx`-installable from npm, MIT-licensed. | Coolify on Hetzner + Cloudflare · npm |
+| [**Flashbuddy**](https://flashbuddy.app) | Learning SaaS from study loop to billing. | FSRS scheduling · AI-generated flashcards · quests and streaks · four Stripe tiers |
+| [**Capypad**](https://capypad.com) | SSR coding quiz with a DE/EN interface and exercises across 10 programming languages. | pgvector HNSW dedup on insert · per-request CSP nonce · private database network |
+| [**ReviewGate**](https://github.com/Codevena/reviewgate) | Fail-closed review gate for AI coding agents. | six reviewer paths · local audit trail · dogfooded in daily development |
 
 ---
 
-### Open source — code you can actually read
+### More shipped
 
-> Public repos you can clone, run, and inspect — not just live links.
+<details>
+<summary>Eight more live products and completed builds</summary>
 
-| Repo | What it is | Stack |
-|---|---|---|
-| [**reviewgate**](https://github.com/Codevena/reviewgate) | A `Stop`-hook code-review gate for AI coding agents — independent LLM reviewers (Codex · Gemini · Claude · OpenRouter) must clear the diff before the agent can end its turn. Multi-reviewer panel, adversarial critic, opt-in sandbox isolation, per-repo learning brain. Dogfooded daily. | TypeScript |
-| [**cleanbuddy**](https://github.com/Codevena/cleanbuddy) | Safe, fast macOS disk-cleanup tool — gum TUI + a `launchd` watcher, 130 tests, allowlist-guarded deletion that never touches active projects or Docker volumes. | Bash |
-| [**cvmake**](https://github.com/Codevena/cvmake) | OSS CV builder — YAML → PDF across 12 templates, npm CLI + live web editor, visual-regression tested. | TypeScript |
-| [**fixbuddy**](https://github.com/Codevena/fixbuddy) | Autonomous GitHub issue fixer with a two-agent self-review pipeline. | Shell |
+- [**AzadiFeed**](https://azadifeed.com) — multilingual crisis communication for the Iranian community, with an AI-translated RSS pipeline and Telegram breaking-news push.
+- [**AI Builds**](https://aibuilds.dev) — a site where AI agents collectively build and evolve pages through an MCP backbone.
+- [**Shattergrid**](https://shattergrid.com) — browser Geometry-Wars clone with a fixed-timestep Three.js simulation and a 20K particle pool.
+- [**Stack Surge**](https://stacksurge.app) — Canvas arcade stacker with cross-device progress, streaks, and fever mode.
+- [**DefOrbit**](https://deforbit.com) — real-time two-player browser shooter using Cloudflare Durable Objects and D1.
+- [**ToolPrime**](https://toolprime.dev) — free browser utilities with no signup and no ads.
+- [**Ludotek**](https://github.com/Codevena/ludotek) — self-hosted retro library with device scanning and IGDB enrichment.
+- [**CVMake**](https://cvmake.codevena.dev) — YAML-to-PDF CV builder with 12 templates, an npm CLI, and visual-regression tests.
 
----
-
-### Stack I reach for
-
-**Frontend** ·  Next.js 16 · Astro · React · TypeScript · Tailwind · shadcn/ui · Three.js · Vanilla JS when it wins
-
-**Backend** ·  Node · Prisma · PostgreSQL · MongoDB · Redis · Supabase · Stripe · Socket.IO · Soketi · Express
-
-**Edge / Serverless** ·  Cloudflare Workers · Durable Objects · Pages · D1
-
-**AI / Agents** ·  OpenAI · Anthropic Claude · Claude Code · MCP · OpenRouter · Embeddings
-
-**Infra (home base)** ·  Hetzner dedicated · Coolify · Tailscale · Docker · Traefik · fail2ban · auditd · canonical-livepatch · BorgBackup · software RAID · Cloudflare Zero Trust
-
-**Testing** ·  Vitest · Playwright · Jest · axe-core
+</details>
 
 ---
 
-### GitHub activity
+### Open source you can inspect
 
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Codevena/Codevena/output/github-snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Codevena/Codevena/output/github-snake.svg" />
-    <img alt="github-snake" src="https://raw.githubusercontent.com/Codevena/Codevena/output/github-snake.svg" />
-  </picture>
-</p>
+- [**ReviewGate**](https://github.com/Codevena/reviewgate) — independent review gates for Claude Code, Codex, Gemini, OpenCode, OpenRouter, and Ollama.
+- [**Cleanbuddy**](https://github.com/Codevena/cleanbuddy) — allowlist-guarded macOS cleanup with 130 tests.
+- [**CVMake**](https://github.com/Codevena/cvmake) — MIT-licensed CV builder, live editor, and npm CLI.
+- [**FixBuddy**](https://github.com/Codevena/fixbuddy) — GitHub issue-to-patch orchestration with a two-agent review loop.
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Codevena/Codevena/output/stats.svg" alt="GitHub stats" height="165" />
-  <img src="https://raw.githubusercontent.com/Codevena/Codevena/output/top-langs.svg" alt="Most used languages" height="165" />
-</p>
+---
+
+### Core stack
+
+**Product** · TypeScript · Next.js · React · Node.js · PostgreSQL<br>
+**Edge & infrastructure** · Cloudflare · Docker · Hetzner · Coolify<br>
+**AI-assisted delivery** · OpenAI · Anthropic · MCP · ReviewGate<br>
+**Verification** · Vitest · Playwright · Jest · axe-core
 
 ---
 
 ### Contact
 
-- 🌐 **[codevena.dev](https://codevena.dev)**
-- 🐦 **[@codevena on X](https://x.com/codevena)**
-- ✉️ **hello@codevena.dev** — written inquiries only, no calls, no Calendly
-- 📍 Düsseldorf, Germany
-- 🗣 DE · EN
+The best way to reach me is **[hello@codevena.dev](mailto:hello@codevena.dev)**.
+I work asynchronously and reply in writing.
+
+[codevena.dev](https://codevena.dev) · [@codevena on X](https://x.com/codevena)
+
+Düsseldorf, Germany · DE / EN
