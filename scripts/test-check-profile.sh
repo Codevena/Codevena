@@ -9,11 +9,12 @@ tmp_dir="$(mktemp -d "${TMPDIR:-/tmp}/profile-check-test.XXXXXX")"
 missing_cta="$tmp_dir/missing-cta.md"
 misplaced_project="$tmp_dir/misplaced-project.md"
 extra_project="$tmp_dir/extra-project.md"
+unlinked_project="$tmp_dir/unlinked-project.md"
 
 cleanup() {
-  rm -f "$missing_cta" "$misplaced_project" "$extra_project" \
+  rm -f "$missing_cta" "$misplaced_project" "$extra_project" "$unlinked_project" \
     "$tmp_dir/missing-cta.out" "$tmp_dir/misplaced-project.out" \
-    "$tmp_dir/extra-project.out"
+    "$tmp_dir/extra-project.out" "$tmp_dir/unlinked-project.out"
   if [ -d "$tmp_dir" ]; then
     rmdir "$tmp_dir"
   fi
@@ -66,8 +67,25 @@ awk '
   { print }
 ' "$repo_dir/README.md" >"$extra_project"
 
-assert_rejected "$missing_cta" missing-cta "hero CTA must appear exactly once"
-assert_rejected "$misplaced_project" misplaced-project "missing selected project destination: https://github.com/Codevena/reviewgate"
-assert_rejected "$extra_project" extra-project "expected exactly 3 project rows in Selected work"
+awk '
+  {
+    token = "[**Flashbuddy**](https://flashbuddy.app)"
+    start = index($0, token)
+    if (start > 0) {
+      line = substr($0, 1, start - 1) "**Flashbuddy**" substr($0, start + length(token))
+      needle = " | FSRS scheduling"
+      proof = index(line, needle)
+      line = substr(line, 1, proof - 1) " | https://flashbuddy.app · FSRS scheduling" substr(line, proof + length(needle))
+      print line
+      next
+    }
+  }
+  { print }
+' "$repo_dir/README.md" >"$unlinked_project"
 
-printf 'profile-test: ok (3 negative fixtures rejected)\n'
+assert_rejected "$missing_cta" missing-cta "hero CTA must appear exactly once"
+assert_rejected "$misplaced_project" misplaced-project "missing selected project link pair: [**ReviewGate**](https://github.com/Codevena/reviewgate)"
+assert_rejected "$extra_project" extra-project "expected exactly 3 project rows in Selected work"
+assert_rejected "$unlinked_project" unlinked-project "missing selected project link pair: [**Flashbuddy**](https://flashbuddy.app)"
+
+printf 'profile-test: ok (4 negative fixtures rejected)\n'

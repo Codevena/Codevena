@@ -74,16 +74,16 @@ project_row_count="$(awk '
 [[ "$project_row_count" -eq 3 ]] \
   || fail "expected exactly 3 project rows in Selected work"
 
-expected_destinations=(
-  "https://flashbuddy.app"
-  "https://capypad.com"
-  "https://github.com/Codevena/reviewgate"
+expected_project_links=(
+  "[**Flashbuddy**](https://flashbuddy.app)"
+  "[**Capypad**](https://capypad.com)"
+  "[**ReviewGate**](https://github.com/Codevena/reviewgate)"
 )
 
-for destination in "${expected_destinations[@]}"; do
-  destination_count="$(grep -Foc -- "$destination" "$section_file" || true)"
-  [[ "$destination_count" -eq 1 ]] \
-    || fail "missing selected project destination: $destination"
+for project_link in "${expected_project_links[@]}"; do
+  project_link_count="$(grep -Foc -- "$project_link" "$section_file" || true)"
+  [[ "$project_link_count" -eq 1 ]] \
+    || fail "missing selected project link pair: $project_link"
 done
 
 banned_terms=(
