@@ -52,8 +52,8 @@ Exactly three projects receive prominent treatment:
 
 | Project | Role in the proof set | Claims allowed in the README |
 |---|---|---|
-| Flashbuddy | Complete commercial SaaS | Live learning SaaS; FSRS scheduling; AI-assisted card generation; billing across four Stripe tiers |
-| Capypad | Application and security engineering | DE/EN interface; quizzes across ten programming languages; pgvector HNSW deduplication; per-request CSP nonce; no public database port |
+| Flashbuddy | Complete commercial SaaS | Live learning SaaS; FSRS scheduling; AI-assisted card generation; Stripe subscriptions with monthly and yearly billing |
+| Capypad | Application and security engineering | DE/EN interface; quizzes across ten programming languages; pgvector semantic deduplication on insert; per-request CSP nonce; no public database port |
 | ReviewGate | Public, inspectable engineering process | Fail-closed agent review gate; six reviewer paths; local audit trail; dogfooded in daily development |
 
 Each entry links directly to the live product or public repository and states

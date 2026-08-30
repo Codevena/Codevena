@@ -27,6 +27,9 @@ jobs:
       - name: Validate profile structure and links
         run: bash scripts/check-profile.sh
 
+      - name: Validate checker rejection fixtures
+        run: bash scripts/test-check-profile.sh
+
       - name: Install actionlint
         env:
           ACTIONLINT_VERSION: "1.7.12"

@@ -37,6 +37,46 @@ for term in "${required_terms[@]}"; do
     || fail "missing required proof: $term"
 done
 
+hero='**[See the production case studies →](https://codevena.dev)**'
+hero_count="$(grep -Fxc -- "$hero" "$readme_path" || true)"
+[[ "$hero_count" -eq 1 ]] \
+  || fail "hero CTA must appear exactly once"
+
+selected_heading='## Selected work'
+selected_count="$(grep -Fxc -- "$selected_heading" "$readme_path" || true)"
+[[ "$selected_count" -eq 1 ]] \
+  || fail "Selected work heading must appear exactly once"
+
+hero_line="$(grep -Fnx -- "$hero" "$readme_path" | cut -d: -f1)"
+selected_line="$(grep -Fnx -- "$selected_heading" "$readme_path" | cut -d: -f1)"
+[[ "$hero_line" -lt "$selected_line" ]] \
+  || fail "hero CTA must appear before Selected work"
+
+url_file="$(mktemp)"
+section_file="$(mktemp)"
+trap 'rm -f "$url_file" "$section_file"' EXIT
+awk -v heading="$selected_heading" '
+  $0 == heading { in_section = 1; next }
+  in_section && /^## / { exit }
+  in_section { print }
+' "$readme_path" > "$section_file"
+
+project_row_count="$(grep -Ec '^\| \[\*\*[^]]+\*\*\]\(https://[^)]+\) \|' "$section_file" || true)"
+[[ "$project_row_count" -eq 3 ]] \
+  || fail "expected exactly 3 project rows in Selected work"
+
+expected_destinations=(
+  "https://flashbuddy.app"
+  "https://capypad.com"
+  "https://github.com/Codevena/reviewgate"
+)
+
+for destination in "${expected_destinations[@]}"; do
+  destination_count="$(grep -Foc -- "$destination" "$section_file" || true)"
+  [[ "$destination_count" -eq 1 ]] \
+    || fail "missing selected project destination: $destination"
+done
+
 banned_terms=(
   "komarev.com"
   "github-snake"
@@ -59,9 +99,6 @@ case "$skip_network" in
     ;;
   *) fail "CHECK_PROFILE_SKIP_NETWORK must be 0 or 1" ;;
 esac
-
-url_file="$(mktemp)"
-trap 'rm -f "$url_file"' EXIT
 
 if ! grep -Eo 'https://[^)>[:space:]"]+' "$readme_path" \
   | LC_ALL=C sort -u > "$url_file"; then
