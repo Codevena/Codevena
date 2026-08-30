@@ -61,7 +61,16 @@ awk -v heading="$selected_heading" '
   in_section { print }
 ' "$readme_path" > "$section_file"
 
-project_row_count="$(grep -Ec '^\| \[\*\*[^]]+\*\*\]\(https://[^)]+\) \|' "$section_file" || true)"
+project_row_count="$(awk '
+  /^\|/ {
+    if ($0 == "| Work | What shipped | Proof |" ||
+        $0 == "|---|---|---|") {
+      next
+    }
+    count++
+  }
+  END { print count + 0 }
+' "$section_file")"
 [[ "$project_row_count" -eq 3 ]] \
   || fail "expected exactly 3 project rows in Selected work"
 

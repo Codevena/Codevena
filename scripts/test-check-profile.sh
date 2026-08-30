@@ -59,7 +59,7 @@ awk '
   /## Selected work/ { print; in_selected = 1; next }
   in_selected && /^\|---\|---\|---\|$/ {
     print
-    print "| [**Fourth**](https://fourth.example) | Extra fixture project. | Test proof |"
+    print "| Fourth project | Extra proof | Extra claim |"
     next
   }
   in_selected && /^## / { in_selected = 0 }
