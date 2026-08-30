@@ -11,7 +11,7 @@ and operations — carried through to something live.
 
 ---
 
-### Selected work
+## Selected work
 
 | Work | What shipped | Proof |
 |---|---|---|
@@ -21,7 +21,7 @@ and operations — carried through to something live.
 
 ---
 
-### More shipped
+## More shipped
 
 <details>
 <summary>Eight more live products and completed builds</summary>
@@ -39,7 +39,7 @@ and operations — carried through to something live.
 
 ---
 
-### Open source you can inspect
+## Open source you can inspect
 
 - [**ReviewGate**](https://github.com/Codevena/reviewgate) — independent review gates for Claude Code, Codex, Gemini, OpenCode, OpenRouter, and Ollama.
 - [**Cleanbuddy**](https://github.com/Codevena/cleanbuddy) — allowlist-guarded macOS cleanup with 130 tests.
@@ -48,7 +48,7 @@ and operations — carried through to something live.
 
 ---
 
-### Core stack
+## Core stack
 
 **Product** · TypeScript · Next.js · React · Node.js · PostgreSQL<br>
 **Edge & infrastructure** · Cloudflare · Docker · Hetzner · Coolify<br>
@@ -57,7 +57,7 @@ and operations — carried through to something live.
 
 ---
 
-### Contact
+## Contact
 
 The best way to reach me is **[hello@codevena.dev](mailto:hello@codevena.dev)**.
 I work asynchronously and reply in writing.

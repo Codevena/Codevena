@@ -21,7 +21,7 @@ required_headings=(
 )
 
 for heading in "${required_headings[@]}"; do
-  grep -Fqx "### $heading" "$readme_path" \
+  grep -Fqx "## $heading" "$readme_path" \
     || fail "missing heading: $heading"
 done
 
