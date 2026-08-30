@@ -14,6 +14,7 @@ fail() {
 
 required_headings=(
   "Selected work"
+  "Contribution trail"
   "More shipped"
   "Open source you can inspect"
   "Core stack"
@@ -54,7 +55,44 @@ selected_line="$(grep -Fnx -- "$selected_heading" "$readme_path" | cut -d: -f1)"
 
 url_file="$(mktemp)"
 section_file="$(mktemp)"
-trap 'rm -f "$url_file" "$section_file"' EXIT
+hero_section_file="$(mktemp)"
+snake_section_file="$(mktemp)"
+trap 'rm -f "$url_file" "$section_file" "$hero_section_file" "$snake_section_file"' EXIT
+
+awk -v heading="$selected_heading" '
+  $0 == heading { exit }
+  { print }
+' "$readme_path" > "$hero_section_file"
+
+badge_count="$(awk '
+  {
+    line = tolower($0)
+    while (match(line, /<img([[:space:]>])/)) {
+      count++
+      line = substr(line, RSTART + RLENGTH)
+    }
+  }
+  END { print count + 0 }
+' "$hero_section_file")"
+if grep -Eq '!\[[^]]*\]\(' "$hero_section_file"; then
+  fail "expected exactly 4 approved badges before Selected work"
+fi
+[[ "$badge_count" -eq 4 ]] \
+  || fail "expected exactly 4 approved badges before Selected work"
+
+approved_badges=(
+  '<a href="https://codevena.dev"><img src="https://img.shields.io/badge/Portfolio-codevena.dev-7dcfff?style=flat-square&logo=googlechrome&logoColor=black" alt="Portfolio — codevena.dev" /></a>'
+  '<img src="https://komarev.com/ghpvc/?username=Codevena&style=flat-square&color=7dcfff&label=Profile+views" alt="Profile views" />'
+  '<a href="https://x.com/codevena"><img src="https://img.shields.io/badge/-@codevena-000000?style=flat-square&logo=x&logoColor=white" alt="X — @codevena" /></a>'
+  '<a href="mailto:hello@codevena.dev"><img src="https://img.shields.io/badge/hello@codevena.dev-7dcfff?style=flat-square&logo=maildotru&logoColor=black" alt="Email — hello@codevena.dev" /></a>'
+)
+
+for badge in "${approved_badges[@]}"; do
+  badge_match_count="$(grep -Foc -- "$badge" "$hero_section_file" || true)"
+  [[ "$badge_match_count" -eq 1 ]] \
+    || fail "missing approved badge: $badge"
+done
+
 awk -v heading="$selected_heading" '
   $0 == heading { in_section = 1; next }
   in_section && /^## / { exit }
@@ -86,9 +124,37 @@ for project_link in "${expected_project_links[@]}"; do
     || fail "missing selected project link pair: $project_link"
 done
 
+contribution_heading='## Contribution trail'
+more_shipped_heading='## More shipped'
+contribution_count="$(grep -Fxc -- "$contribution_heading" "$readme_path" || true)"
+[[ "$contribution_count" -eq 1 ]] \
+  || fail "Contribution trail heading must appear exactly once"
+
+contribution_line="$(grep -Fnx -- "$contribution_heading" "$readme_path" | cut -d: -f1)"
+more_shipped_line="$(grep -Fnx -- "$more_shipped_heading" "$readme_path" | cut -d: -f1)"
+[[ "$selected_line" -lt "$contribution_line" && \
+   "$contribution_line" -lt "$more_shipped_line" ]] \
+  || fail "Contribution trail must be after Selected work and before More shipped"
+
+awk -v heading="$contribution_heading" '
+  $0 == heading { in_section = 1; next }
+  in_section && /^## / { exit }
+  in_section { print }
+' "$readme_path" > "$snake_section_file"
+
+light_snake='https://raw.githubusercontent.com/Codevena/Codevena/output/github-snake.svg'
+dark_snake='https://raw.githubusercontent.com/Codevena/Codevena/output/github-snake-dark.svg'
+light_count="$(grep -Foc -- "$light_snake" "$snake_section_file" || true)"
+dark_count="$(grep -Foc -- "$dark_snake" "$snake_section_file" || true)"
+[[ "$light_count" -eq 2 ]] \
+  || fail "missing contribution snake URL: $light_snake"
+[[ "$dark_count" -eq 1 ]] \
+  || fail "missing contribution snake URL: $dark_snake"
+grep -Fq "alt=\"Animated contribution snake for Codevena's GitHub activity\"" \
+  "$snake_section_file" \
+  || fail "missing approved contribution snake alt text"
+
 banned_terms=(
-  "komarev.com"
-  "github-snake"
   "stats.svg"
   "top-langs.svg"
   "assets/banner.jpg"
@@ -96,7 +162,7 @@ banned_terms=(
 
 for term in "${banned_terms[@]}"; do
   if grep -Fq -- "$term" "$readme_path"; then
-    fail "banned vanity asset reference: $term"
+    fail "banned retired asset reference: $term"
   fi
 done
 

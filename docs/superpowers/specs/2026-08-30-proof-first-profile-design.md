@@ -3,6 +3,12 @@
 **Date:** 2026-08-30
 **Status:** Approved direction; implementation pending written-spec review
 
+> **Partially superseded:**
+> `docs/superpowers/specs/2026-08-30-visual-proof-snake-design.md` restores the
+> approved badge row and contribution snake with a separated, pinned publish
+> boundary. The proof-first content hierarchy and all factual-claim constraints
+> in this document remain authoritative.
+
 ## Purpose
 
 Turn the `Codevena/Codevena` profile README into a focused proof hub. A visitor

@@ -9,6 +9,13 @@ and operations — carried through to something live.
 
 `Product to production. Edge to metal.`
 
+<p>
+  <a href="https://codevena.dev"><img src="https://img.shields.io/badge/Portfolio-codevena.dev-7dcfff?style=flat-square&logo=googlechrome&logoColor=black" alt="Portfolio — codevena.dev" /></a>
+  <img src="https://komarev.com/ghpvc/?username=Codevena&style=flat-square&color=7dcfff&label=Profile+views" alt="Profile views" />
+  <a href="https://x.com/codevena"><img src="https://img.shields.io/badge/-@codevena-000000?style=flat-square&logo=x&logoColor=white" alt="X — @codevena" /></a>
+  <a href="mailto:hello@codevena.dev"><img src="https://img.shields.io/badge/hello@codevena.dev-7dcfff?style=flat-square&logo=maildotru&logoColor=black" alt="Email — hello@codevena.dev" /></a>
+</p>
+
 ---
 
 ## Selected work
@@ -18,6 +25,18 @@ and operations — carried through to something live.
 | [**Flashbuddy**](https://flashbuddy.app) | Learning SaaS from study loop to billing. | FSRS scheduling · AI-generated flashcards · quests and streaks · Stripe subscriptions with monthly and yearly billing |
 | [**Capypad**](https://capypad.com) | SSR coding quiz with a DE/EN interface and exercises across 10 programming languages. | pgvector semantic dedup on insert · per-request CSP nonce · private database network |
 | [**ReviewGate**](https://github.com/Codevena/reviewgate) | Fail-closed review gate for AI coding agents. | six reviewer paths · local audit trail · dogfooded in daily development |
+
+---
+
+## Contribution trail
+
+<p align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Codevena/Codevena/output/github-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Codevena/Codevena/output/github-snake.svg" />
+    <img alt="Animated contribution snake for Codevena's GitHub activity" src="https://raw.githubusercontent.com/Codevena/Codevena/output/github-snake.svg" />
+  </picture>
+</p>
 
 ---
 
