@@ -16,6 +16,8 @@ misplaced_snake="$tmp_dir/misplaced-snake.md"
 reintroduced_stats="$tmp_dir/reintroduced-stats.md"
 extra_badge="$tmp_dir/extra-badge.md"
 private_repository="$tmp_dir/private-repository.md"
+mock_bin="$tmp_dir/bin"
+network_output="$tmp_dir/network.out"
 
 cleanup() {
   rm -f "$missing_cta" "$misplaced_project" "$extra_project" "$unlinked_project" \
@@ -25,7 +27,11 @@ cleanup() {
     "$tmp_dir/extra-project.out" "$tmp_dir/unlinked-project.out" \
     "$tmp_dir/missing-badges.out" "$tmp_dir/missing-snake-source.out" \
     "$tmp_dir/misplaced-snake.out" "$tmp_dir/reintroduced-stats.out" \
-    "$tmp_dir/extra-badge.out" "$tmp_dir/private-repository.out"
+    "$tmp_dir/extra-badge.out" "$tmp_dir/private-repository.out" \
+    "$network_output" "$mock_bin/curl"
+  if [ -d "$mock_bin" ]; then
+    rmdir "$mock_bin"
+  fi
   if [ -d "$tmp_dir" ]; then
     rmdir "$tmp_dir"
   fi
@@ -158,4 +164,46 @@ assert_rejected "$reintroduced_stats" reintroduced-stats \
 assert_rejected "$extra_badge" extra-badge \
   "expected exactly 4 approved badges before Selected work"
 
-printf 'profile-test: ok (valid profile accepted, 10 negative fixtures rejected)\n'
+mkdir "$mock_bin"
+cat >"$mock_bin/curl" <<'CURL'
+#!/usr/bin/env bash
+set -euo pipefail
+url="${!#}"
+case "$PROFILE_TEST_HTTP_CASE:$url" in
+  x-403:https://x.com/codevena) printf 403 ;;
+  x-404:https://x.com/codevena) printf 404 ;;
+  x-503:https://x.com/codevena) printf 503 ;;
+  other-403:https://capypad.com) printf 403 ;;
+  *) printf 200 ;;
+esac
+CURL
+chmod +x "$mock_bin/curl"
+
+assert_network_case() {
+  scenario="$1"
+  expected_status="$2"
+  expected_message="$3"
+  actual_status=0
+  PATH="$mock_bin:$PATH" PROFILE_TEST_HTTP_CASE="$scenario" \
+    CHECK_PROFILE_SKIP_NETWORK=0 bash "$checker" "$repo_dir/README.md" \
+    >"$network_output" 2>&1 || actual_status=$?
+
+  if [[ "$actual_status" -ne "$expected_status" ]] \
+    || ! grep -Fqx -- "$expected_message" "$network_output"; then
+    printf 'profile-test: wrong result for %s (exit %s)\n' \
+      "$scenario" "$actual_status" >&2
+    cat "$network_output" >&2
+    exit 1
+  fi
+}
+
+assert_network_case x-403 0 \
+  "profile-check: warning: automated verification blocked by HTTP 403: https://x.com/codevena"
+assert_network_case x-404 1 \
+  "profile-check: URL returned HTTP 404: https://x.com/codevena"
+assert_network_case x-503 1 \
+  "profile-check: URL returned HTTP 503: https://x.com/codevena"
+assert_network_case other-403 1 \
+  "profile-check: URL returned HTTP 403: https://capypad.com"
+
+printf 'profile-test: ok (valid profile accepted, 10 negative fixtures rejected, 4 HTTP cases verified)\n'

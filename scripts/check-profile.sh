@@ -203,6 +203,12 @@ while IFS= read -r url; do
 
   case "$http_code" in
     2??|3??) ;;
+    403)
+      [[ "$url" == 'https://x.com/codevena' ]] \
+        || fail "URL returned HTTP $http_code: $url"
+      printf 'profile-check: warning: automated verification blocked by HTTP 403: %s\n' \
+        "$url" >&2
+      ;;
     *) fail "URL returned HTTP $http_code: $url" ;;
   esac
 
