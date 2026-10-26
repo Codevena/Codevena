@@ -12,6 +12,11 @@ fail() {
 
 [[ -f "$readme_path" ]] || fail "README not found: $readme_path"
 
+private_repository='https://github.com/Codevena/reviewgate'
+if grep -Fiq -- "$private_repository" "$readme_path"; then
+  fail "private repository link: $private_repository"
+fi
+
 required_headings=(
   "Selected work"
   "Contribution trail"
@@ -112,16 +117,16 @@ project_row_count="$(awk '
 [[ "$project_row_count" -eq 3 ]] \
   || fail "expected exactly 3 project rows in Selected work"
 
-expected_project_links=(
+expected_project_entries=(
   "[**Flashbuddy**](https://flashbuddy.app)"
   "[**Capypad**](https://capypad.com)"
-  "[**ReviewGate**](https://github.com/Codevena/reviewgate)"
+  "| **ReviewGate** |"
 )
 
-for project_link in "${expected_project_links[@]}"; do
-  project_link_count="$(grep -Foc -- "$project_link" "$section_file" || true)"
-  [[ "$project_link_count" -eq 1 ]] \
-    || fail "missing selected project link pair: $project_link"
+for project_entry in "${expected_project_entries[@]}"; do
+  project_entry_count="$(grep -Foc -- "$project_entry" "$section_file" || true)"
+  [[ "$project_entry_count" -eq 1 ]] \
+    || fail "missing selected project entry: $project_entry"
 done
 
 contribution_heading='## Contribution trail'

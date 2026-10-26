@@ -15,16 +15,17 @@ missing_snake_source="$tmp_dir/missing-snake-source.md"
 misplaced_snake="$tmp_dir/misplaced-snake.md"
 reintroduced_stats="$tmp_dir/reintroduced-stats.md"
 extra_badge="$tmp_dir/extra-badge.md"
+private_repository="$tmp_dir/private-repository.md"
 
 cleanup() {
   rm -f "$missing_cta" "$misplaced_project" "$extra_project" "$unlinked_project" \
     "$missing_badges" "$missing_snake_source" "$misplaced_snake" \
-    "$reintroduced_stats" "$extra_badge" \
+    "$reintroduced_stats" "$extra_badge" "$private_repository" \
     "$tmp_dir/missing-cta.out" "$tmp_dir/misplaced-project.out" \
     "$tmp_dir/extra-project.out" "$tmp_dir/unlinked-project.out" \
     "$tmp_dir/missing-badges.out" "$tmp_dir/missing-snake-source.out" \
     "$tmp_dir/misplaced-snake.out" "$tmp_dir/reintroduced-stats.out" \
-    "$tmp_dir/extra-badge.out"
+    "$tmp_dir/extra-badge.out" "$tmp_dir/private-repository.out"
   if [ -d "$tmp_dir" ]; then
     rmdir "$tmp_dir"
   fi
@@ -50,6 +51,17 @@ assert_rejected() {
     }
 }
 
+CHECK_PROFILE_SKIP_NETWORK=1 bash "$checker" "$repo_dir/README.md"
+
+awk '
+  $0 == "## Open source you can inspect" {
+    print
+    print "- [**ReviewGate**](https://github.com/Codevena/reviewgate) — private repository."
+    next
+  }
+  { print }
+' "$repo_dir/README.md" >"$private_repository"
+
 awk '$0 != "**[See the production case studies →](https://codevena.dev)**"' \
   "$repo_dir/README.md" >"$missing_cta"
 
@@ -60,7 +72,7 @@ awk '
   }
   /## More shipped/ {
     print
-    print "- [**ReviewGate**](https://github.com/Codevena/reviewgate) — moved outside the selected proof set."
+    print "- **ReviewGate** — moved outside the selected proof set."
     next
   }
   { print }
@@ -129,10 +141,12 @@ awk '
   { print }
 ' "$repo_dir/README.md" >"$extra_badge"
 
+assert_rejected "$private_repository" private-repository \
+  "private repository link: https://github.com/Codevena/reviewgate"
 assert_rejected "$missing_cta" missing-cta "hero CTA must appear exactly once"
-assert_rejected "$misplaced_project" misplaced-project "missing selected project link pair: [**ReviewGate**](https://github.com/Codevena/reviewgate)"
+assert_rejected "$misplaced_project" misplaced-project "missing selected project entry: | **ReviewGate** |"
 assert_rejected "$extra_project" extra-project "expected exactly 3 project rows in Selected work"
-assert_rejected "$unlinked_project" unlinked-project "missing selected project link pair: [**Flashbuddy**](https://flashbuddy.app)"
+assert_rejected "$unlinked_project" unlinked-project "missing selected project entry: [**Flashbuddy**](https://flashbuddy.app)"
 assert_rejected "$missing_badges" missing-badges \
   "expected exactly 4 approved badges before Selected work"
 assert_rejected "$missing_snake_source" missing-snake-source \
@@ -144,4 +158,4 @@ assert_rejected "$reintroduced_stats" reintroduced-stats \
 assert_rejected "$extra_badge" extra-badge \
   "expected exactly 4 approved badges before Selected work"
 
-printf 'profile-test: ok (9 negative fixtures rejected)\n'
+printf 'profile-test: ok (valid profile accepted, 10 negative fixtures rejected)\n'

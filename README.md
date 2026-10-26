@@ -24,7 +24,7 @@ and operations — carried through to something live.
 |---|---|---|
 | [**Flashbuddy**](https://flashbuddy.app) | Learning SaaS from study loop to billing. | FSRS scheduling · AI-generated flashcards · quests and streaks · Stripe subscriptions with monthly and yearly billing |
 | [**Capypad**](https://capypad.com) | SSR coding quiz with a DE/EN interface and exercises across 10 programming languages. | pgvector semantic dedup on insert · per-request CSP nonce · private database network |
-| [**ReviewGate**](https://github.com/Codevena/reviewgate) | Fail-closed review gate for AI coding agents. | six reviewer paths · local audit trail · dogfooded in daily development |
+| **ReviewGate** | Fail-closed review gate for AI coding agents. | six reviewer paths · local audit trail · dogfooded in daily development |
 
 ---
 
@@ -60,7 +60,6 @@ and operations — carried through to something live.
 
 ## Open source you can inspect
 
-- [**ReviewGate**](https://github.com/Codevena/reviewgate) — independent review gates for Claude Code, Codex, Gemini, OpenCode, OpenRouter, and Ollama.
 - [**Cleanbuddy**](https://github.com/Codevena/cleanbuddy) — allowlist-guarded macOS cleanup with 130 tests.
 - [**CVMake**](https://github.com/Codevena/cvmake) — MIT-licensed CV builder, live editor, and npm CLI.
 - [**FixBuddy**](https://github.com/Codevena/fixbuddy) — GitHub issue-to-patch orchestration with a two-agent review loop.
