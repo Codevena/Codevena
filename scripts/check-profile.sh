@@ -33,7 +33,7 @@ done
 
 required_terms=(
   "https://codevena.dev"
-  "Flashbuddy"
+  "Wondibo"
   "Capypad"
   "ReviewGate"
 )
@@ -118,7 +118,7 @@ project_row_count="$(awk '
   || fail "expected exactly 3 project rows in Selected work"
 
 expected_project_entries=(
-  "[**Flashbuddy**](https://flashbuddy.app)"
+  "[**Wondibo**](https://wondibo.app)"
   "[**Capypad**](https://capypad.com)"
   "| **ReviewGate** |"
 )

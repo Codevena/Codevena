@@ -97,13 +97,13 @@ awk '
 
 awk '
   {
-    token = "[**Flashbuddy**](https://flashbuddy.app)"
+    token = "[**Wondibo**](https://wondibo.app)"
     start = index($0, token)
     if (start > 0) {
-      line = substr($0, 1, start - 1) "**Flashbuddy**" substr($0, start + length(token))
+      line = substr($0, 1, start - 1) "**Wondibo**" substr($0, start + length(token))
       needle = " | FSRS scheduling"
       proof = index(line, needle)
-      line = substr(line, 1, proof - 1) " | https://flashbuddy.app · FSRS scheduling" substr(line, proof + length(needle))
+      line = substr(line, 1, proof - 1) " | https://wondibo.app · FSRS scheduling" substr(line, proof + length(needle))
       print line
       next
     }
@@ -152,7 +152,7 @@ assert_rejected "$private_repository" private-repository \
 assert_rejected "$missing_cta" missing-cta "hero CTA must appear exactly once"
 assert_rejected "$misplaced_project" misplaced-project "missing selected project entry: | **ReviewGate** |"
 assert_rejected "$extra_project" extra-project "expected exactly 3 project rows in Selected work"
-assert_rejected "$unlinked_project" unlinked-project "missing selected project entry: [**Flashbuddy**](https://flashbuddy.app)"
+assert_rejected "$unlinked_project" unlinked-project "missing selected project entry: [**Wondibo**](https://wondibo.app)"
 assert_rejected "$missing_badges" missing-badges \
   "expected exactly 4 approved badges before Selected work"
 assert_rejected "$missing_snake_source" missing-snake-source \

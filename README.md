@@ -22,7 +22,7 @@ and operations — carried through to something live.
 
 | Work | What shipped | Proof |
 |---|---|---|
-| [**Flashbuddy**](https://flashbuddy.app) | Learning SaaS from study loop to billing. | FSRS scheduling · AI-generated flashcards · quests and streaks · Stripe subscriptions with monthly and yearly billing |
+| [**Wondibo**](https://wondibo.app) | Learning SaaS from study loop to billing. | FSRS scheduling · AI-generated flashcards · quests and streaks · Stripe subscriptions with monthly and yearly billing |
 | [**Capypad**](https://capypad.com) | SSR coding quiz with a DE/EN interface and exercises across 10 programming languages. | pgvector semantic dedup on insert · per-request CSP nonce · private database network |
 | **ReviewGate** | Fail-closed review gate for AI coding agents. | six reviewer paths · local audit trail · dogfooded in daily development |
 
